@@ -2,11 +2,11 @@ name: Translation Progress
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - 'files/Etc/Localization/*.csv'
   pull_request:
-    branches:
-      - main
+    paths:
+      - 'files/Etc/Localization/*.csv'
 
 jobs:
   translation-progress:
