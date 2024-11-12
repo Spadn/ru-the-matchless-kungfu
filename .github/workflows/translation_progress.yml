@@ -1,0 +1,33 @@
+name: Translation Progress
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  translation-progress:
+    runs-on: ubuntu-latest
+
+    steps:
+      # step1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # step2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      # step3
+      - name: Run translation progress script
+        run: |
+          python check_translation_progress.py  # Имя вашего скрипта
+
+      # step4
+      - name: Display progress completion message
+        run: echo "Translation progress check complete."
