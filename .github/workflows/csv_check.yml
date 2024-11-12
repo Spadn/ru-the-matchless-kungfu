@@ -1,0 +1,26 @@
+name: CSV Check
+
+on:
+  push:
+    paths:
+      - 'files/Etc/Localization/*.csv'
+  pull_request:
+    paths:
+      - 'files/Etc/Localization/*.csv'
+
+jobs:
+  csv-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Run CSV Check
+        run: |
+          python check_csv.py
